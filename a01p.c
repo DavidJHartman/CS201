@@ -14,9 +14,9 @@ static char *studentName = "David Hartman";
 // report whether machine is big or small endian
 void bigOrSmallEndian()
 {
-    unsigned short *p = (unsigned short)0xaabb;
-    printf("%x\n",p[0]);
-    printf("%x\n",p[1]);
+    short i = 0xAABB;
+    char* p;
+    p = &i; 
     if (p[0]>p[1])
         printf("Your system is little-endian");
     else
