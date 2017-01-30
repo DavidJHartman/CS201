@@ -14,8 +14,13 @@ static char *studentName = "David Hartman";
 // report whether machine is big or small endian
 void bigOrSmallEndian()
 {
-    char a[sizeof(short)];
-    printf("%i,%i\n", a[0],a[1]);
+    unsigned short *p = (unsigned short)0xaabb;
+    printf("%x\n",p[0]);
+    printf("%x\n",p[1]);
+    if (p[0]>p[1])
+        printf("Your system is little-endian");
+    else
+        printf("your system is big-endian");
 }
 
 // get next int (entered in hex) using scanf()
@@ -41,7 +46,6 @@ int main(int argc, char **argv)
 
 	printf("CS201 - A01p - %s\n\n", studentName);
 	bigOrSmallEndian();
-    return 0;
 	for (;;) {
 		if (argc == 1)						// allow grading script to control ...
 			printf("> ");					// ... whether prompt character is printed
